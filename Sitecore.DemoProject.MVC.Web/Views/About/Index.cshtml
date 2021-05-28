@@ -1,0 +1,31 @@
+﻿@using Sitecore.Mvc
+@using Sitecore.Mvc.Presentation
+@using Sitecore.DemoProject.MVC.Web.Models
+@model AboutViewModel
+
+@if (Model != null && Model.Item != null)
+{
+    <!-- About Start -->
+    <div class="about wow fadeInUp" data-wow-delay="0.1s">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-5 col-md-6">
+                    <div class="about-img">
+                        @Html.Sitecore().Field("Image",Model.Item)
+                    </div>
+                </div>
+                <div class="col-lg-7 col-md-6">
+                    <div class="section-header text-left">
+                        <p>@Html.Sitecore().Field("Title", Model.Item)</p>
+                        <h2>@Html.Sitecore().Field("Sub_Title", Model.Item)</h2>
+                    </div>
+                    <div class="about-text">
+                        @Html.Sitecore().Field("{C082A3BE-EEB1-4494-95C4-F51CCCA918E8}", Model.Item)
+                        @Html.Sitecore().Field("Call_To_Action",new {@class ="btn" })                       
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- About End -->
+}
