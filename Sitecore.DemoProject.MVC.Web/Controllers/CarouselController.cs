@@ -20,10 +20,17 @@ namespace Sitecore.DemoProject.MVC.Web.Controllers
 
             var dataSource = RenderingContext.Current?.Rendering.Item;
             MultilistField slidesField = dataSource.Fields["Slides"];
+
+            //Rendering Parameters
+            var slideCountParam = RenderingContext.Current?.Rendering.Parameters["SlideCount"];
+            int.TryParse(slideCountParam, out int result);
+            int slideCount = result == 0 ? 2 : result;
+
             if (slidesField?.Count > 0)
             {
                 var slideItems = slidesField.GetItems();
-                foreach(var slideItem in slideItems)
+
+                foreach(var slideItem in slideItems.Take(slideCount))
                 {
                     //Title
                     var titleField = slideItem.Fields["Title"];
