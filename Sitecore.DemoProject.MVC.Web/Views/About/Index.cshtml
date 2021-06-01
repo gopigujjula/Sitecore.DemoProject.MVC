@@ -11,7 +11,7 @@
             <div class="row align-items-center">
                 <div class="col-lg-5 col-md-6">
                     <div class="about-img">
-                        @Html.Sitecore().Field("Image",Model.Item)
+                        @Html.Sitecore().Field("Image", Model.Item)
                     </div>
                 </div>
                 <div class="col-lg-7 col-md-6">
@@ -21,7 +21,7 @@
                     </div>
                     <div class="about-text">
                         @Html.Sitecore().Field("{C082A3BE-EEB1-4494-95C4-F51CCCA918E8}", Model.Item)
-                        @Html.Sitecore().Field("Call_To_Action",new {@class ="btn" })                       
+                        @Html.Sitecore().Field("Call_To_Action", Model.Item, new { @class = "btn" })                       
                     </div>
                 </div>
             </div>
