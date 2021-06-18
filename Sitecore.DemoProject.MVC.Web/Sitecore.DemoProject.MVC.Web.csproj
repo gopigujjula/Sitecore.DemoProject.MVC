@@ -220,6 +220,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AboutController.cs" />
     <Compile Include="Controllers\CarouselController.cs" />
+    <Compile Include="Extensions\ItemExtensions.cs" />
     <Compile Include="Models\AboutViewModel.cs" />
     <Compile Include="Models\CarouselModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

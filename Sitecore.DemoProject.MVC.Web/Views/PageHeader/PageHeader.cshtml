@@ -1,7 +1,16 @@
 ﻿@using Sitecore.Mvc
 @using Sitecore.Mvc.Presentation
+@using Sitecore.DemoProject.MVC.Web.Extensions
+@using Sitecore.Links.UrlBuilders
+
 @model RenderingModel
 
+@{     
+    ItemUrlBuilderOptions options = new ItemUrlBuilderOptions();
+    options.LowercaseUrls = true;
+    options.LanguageEmbedding = Sitecore.Links.LanguageEmbedding.Never;    
+    //var currentUrl = Sitecore.Links.LinkManager.GetItemUrl(Model.PageItem);
+}
 @if (Model != null && Model.PageItem != null)
 {
     <div class="page-header">
@@ -11,8 +20,8 @@
                     <h2>@Html.Sitecore().Field("Title", Model.PageItem)</h2>
                 </div>
                 <div class="col-12">
-                    <a href="/">Home</a>
-                    <a href="/about-us">@Html.Sitecore().Field("Title", Model.PageItem)</a>
+                    <a href="@Model.PageItem.Parent.Url(options)">@Html.Sitecore().Field("Title", Model.PageItem.Parent)</a>
+                    <a href="@Model.PageItem.Url(options)">@Html.Sitecore().Field("Title", Model.PageItem)</a>
                 </div>
             </div>
         </div>

@@ -1,5 +1,6 @@
 ﻿using Sitecore.Data.Fields;
 using Sitecore.DemoProject.MVC.Web.Models;
+using Sitecore.Links.UrlBuilders;
 using Sitecore.Mvc.Presentation;
 using Sitecore.Web.UI.WebControls;
 using System;
@@ -12,7 +13,6 @@ namespace Sitecore.DemoProject.MVC.Web.Controllers
 {
     public class CarouselController : Controller
     {
-        // GET: Carousel
         public ActionResult Index()
         {
             var model = new CarouselModel();
