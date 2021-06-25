@@ -214,16 +214,19 @@
     <Content Include="Views\PageHeader\PageHeader.cshtml" />
     <Content Include="Views\About\Index.cshtml" />
     <Content Include="Views\Carousel\Index.cshtml" />
+    <Content Include="Views\Navigation\Index.cshtml" />
     <None Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AboutController.cs" />
     <Compile Include="Controllers\CarouselController.cs" />
+    <Compile Include="Controllers\NavigationController.cs" />
     <Compile Include="Extensions\ItemExtensions.cs" />
     <Compile Include="Extensions\SiteExtensions.cs" />
     <Compile Include="Models\AboutViewModel.cs" />
     <Compile Include="Models\CarouselModel.cs" />
+    <Compile Include="Models\NavigationViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
