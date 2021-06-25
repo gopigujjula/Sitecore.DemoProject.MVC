@@ -221,6 +221,7 @@
     <Compile Include="Controllers\AboutController.cs" />
     <Compile Include="Controllers\CarouselController.cs" />
     <Compile Include="Extensions\ItemExtensions.cs" />
+    <Compile Include="Extensions\SiteExtensions.cs" />
     <Compile Include="Models\AboutViewModel.cs" />
     <Compile Include="Models\CarouselModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
