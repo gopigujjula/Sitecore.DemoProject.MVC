@@ -13,7 +13,8 @@ namespace Sitecore.DemoProject.MVC.Web.Controllers
 {
     public class NavigationController : Controller
     {
-        // GET: Navigation
+
+        #region Build Navigation by Crawling the Tree
         public ActionResult Index()
         {
             var model = new NavigationViewModel();
@@ -47,5 +48,49 @@ namespace Sitecore.DemoProject.MVC.Web.Controllers
                 ActiveClass = PageContext.Current.Item.ID == item.ID ? "active" : string.Empty
             };
         }
+        #endregion
+
+
+        #region Build Navigation using datasource approach
+        public ActionResult HeaderNavigationByDS()
+        {
+            var model = new NavigationViewModel();
+            List<Navigation> parentNavigations = new List<Navigation>();
+
+            var dataSource = RenderingContext.Current?.Rendering.Item;
+
+            if (dataSource != null && dataSource.HasChildren)
+            {
+                foreach (Item parentItem in dataSource.Children)
+                {
+                    var parentNavigation = BuildNavigationByDS(parentItem);
+                    var childNavigations = new List<Navigation>();
+
+                    if (parentItem.HasChildren)
+                    {
+                        foreach (Item childItem in parentItem.Children)
+                        {
+                            var childNavigation = BuildNavigationByDS(childItem);
+                            childNavigations.Add(childNavigation);
+                        }
+                        parentNavigation.ChildNavigations = childNavigations;
+                    }
+                    parentNavigations.Add(parentNavigation);
+                }
+            }
+            model.Navigations = parentNavigations;
+            return View(model);
+        }
+
+        private Navigation BuildNavigationByDS(Item item)
+        {
+            return new Navigation
+            {
+                NavigationTitle = item.Fields["Navigation_Title"]?.Value,
+                NavigationLink = ((LinkField)item.Fields["Navigation_Link"]).GetFriendlyUrl(),
+                ActiveClass = PageContext.Current.Item.ID == ((LinkField)item.Fields["Navigation_Link"]).TargetID ? "active" : string.Empty
+            };
+        }
+        #endregion
     }
 }

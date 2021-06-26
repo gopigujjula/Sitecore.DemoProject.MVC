@@ -215,6 +215,7 @@
     <Content Include="Views\About\Index.cshtml" />
     <Content Include="Views\Carousel\Index.cshtml" />
     <Content Include="Views\Navigation\Index.cshtml" />
+    <Content Include="Views\Navigation\HeaderNavigationByDS.cshtml" />
     <None Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
