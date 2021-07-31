@@ -44,6 +44,9 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Sitecore.Buckets, Version=8.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Sitecore.Buckets.10.1.0\lib\net48\Sitecore.Buckets.dll</HintPath>
+    </Reference>
     <Reference Include="Sitecore.Kernel, Version=16.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Sitecore.Kernel.10.1.0\lib\net48\Sitecore.Kernel.dll</HintPath>
     </Reference>
@@ -129,6 +132,9 @@
     <Content Include="lib\slick\slick-theme.scss" />
     <Content Include="lib\slick\slick.less" />
     <Content Include="lib\slick\slick.scss" />
+    <Content Include="App_Config\Include\Project\CustomLinkProvider.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <None Include="Properties\PublishProfiles\SC 101 Deploy.pubxml" />
     <Content Include="css\style.css" />
     <Content Include="img\about.jpg" />
@@ -223,6 +229,7 @@
     <Compile Include="Controllers\AboutController.cs" />
     <Compile Include="Controllers\CarouselController.cs" />
     <Compile Include="Controllers\NavigationController.cs" />
+    <Compile Include="CustomCode\CustomLinkProvider.cs" />
     <Compile Include="Extensions\ItemExtensions.cs" />
     <Compile Include="Extensions\SiteExtensions.cs" />
     <Compile Include="Models\AboutViewModel.cs" />
