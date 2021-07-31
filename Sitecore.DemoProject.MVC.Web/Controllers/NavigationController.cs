@@ -17,6 +17,15 @@ namespace Sitecore.DemoProject.MVC.Web.Controllers
         #region Build Navigation by Crawling the Tree
         public ActionResult Index()
         {
+            //Item by ID
+            //var aboutItem = Sitecore.Context.Database.GetItem(new Data.ID("{0F244654-BF48-4DB5-A40B-1FEBC41E0DDB}"));
+            //var readItemID = aboutItem.ID;
+            //var readItemName = aboutItem.Name;
+
+            //var aboutItemByPath = Sitecore.Context.Database.GetItem("/sitecore/content/Builderz/Home/About Us");
+            //var readItemPath = aboutItem.Paths.FullPath;
+            //var displayName = aboutItem.DisplayName;
+
             var model = new NavigationViewModel();
             List<Navigation> navigations = new List<Navigation>();
 
